@@ -4,7 +4,8 @@ const ShopContext = React.createContext();
 
 class ShopProvider extends Component {
     state = {
-        Embroidery: []
+        Embroidery: [],
+        NavOpen: false
     }
 
     componentDidMount(){
@@ -12,11 +13,24 @@ class ShopProvider extends Component {
         this.setState({Embroidery:tempEmb})
     }
 
+    NavClick = () => {
+        this.setState(prevState => ({
+            NavOpen: !prevState.NavOpen
+          }));
+    }
+
+    closeNavModal = () => {
+        this.setState({NavOpen: false})
+    }
+
+
     render() {
         return (
             <ShopContext.Provider 
                 value={{
-                    ...this.state
+                    ...this.state,
+                    NavClick: this.NavClick,
+                    closeNavModal: this.closeNavModal
                     }}>
                 {this.props.children}
             </ShopContext.Provider>

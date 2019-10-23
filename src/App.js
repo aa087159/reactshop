@@ -14,6 +14,7 @@ import Animals from './components/Animals'
 import About from './components/About'
 import Cart from './components/Cart'
 import Default from './components/Default'
+import NavCollapse from './components/NavCollapse'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route component={Default} />
         </Switch>
+        <NavCollapse />
       </Router>
     </ShopProvider>
   );
