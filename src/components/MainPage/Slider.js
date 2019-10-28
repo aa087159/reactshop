@@ -38,6 +38,7 @@ const Text = ["Lorem ipsum dolor sit amet.",
               "Lorem ipsum dolor sit amet.",
               "Lorem ipsum dolor sit amet.",]
 
+const TextSwtich = Array(Text.length).fill({status:false});
 
 const IconNames = ["fa-cat", "fa-dog", "fa-paw","fa-crow","fa-bone","fa-mitten"]
 
@@ -93,15 +94,25 @@ for (let i = 0; i < 6; i++){
 
 class Slider extends Component {
     state={
-        textHover: false
+        textHover: TextSwtich
     }
     
-    textHoverHandler = () => {
-        this.setState(prevState => ({
-            textHover: !prevState.textHover
-          }));
+    textMouseEnterHandler = (index) => {
+       let _textHover = JSON.parse(JSON.stringify(this.state.textHover));
+       _textHover[index].status = true;
+       this.setState({
+            textHover:_textHover
+       })
     }
-
+    textMouseLeaveHandler = (index) =>{
+        setTimeout(()=>{
+            let _textHover = JSON.parse(JSON.stringify(this.state.textHover));
+            _textHover[index].status = false;
+            this.setState({
+                 textHover:_textHover
+            })
+        })
+    }
     onGoTo = dir => this.ts.slider.goTo(dir)
 
     render() {
@@ -115,8 +126,8 @@ class Slider extends Component {
                             >
                             {imgs.map((el, index) => (
                             <div className="slide"
-                                    onMouseEnter={()=> this.textHoverHandler()}
-                                    onMouseLeave={()=> this.textHoverHandler()}
+                                    onMouseEnter={()=> this.textMouseEnterHandler(index)}
+                                    onMouseLeave={()=> this.textMouseLeaveHandler(index)}
                                     key={index}>
                                 <img className={`tns-lazy-img`}
                                         src={loadingImage}
@@ -127,13 +138,13 @@ class Slider extends Component {
                                 />
                                 <Link activeClass="activer" className="pointer" to="toAboutUs" spy={true} smooth="easeInQuad" offset={-55} duration={1000}>
                                     <h2 className="SliderTitle" 
-                                        style={{transform: this.state.textHover?'scale(1.2)':'scale(1)'}}>{Title[index]}</h2>
+                                        style={{transform: this.state.textHover[index].status?'scale(1.2)':'scale(1)'}}>{Title[index]}</h2>
                                     <p className="SliderText"
-                                        style={{opacity: this.state.textHover? 1:0,
-                                                transform: this.state.textHover?'translate(70px,0)':'translate(0px,0)'}}>{Text[index]}</p>
+                                        style={{opacity: this.state.textHover[index].status? 1:0,
+                                                transform: this.state.textHover[index].status?'translate(70px,0)':'translate(0px,0)'}}>{Text[index]}</p>
                                     <i className={`fas ${IconNames[index]} fa-2x hoverIcons `}
-                                        style={{opacity: this.state.textHover? 1:0, 
-                                        transform: this.state.textHover?'translate(30px,0)':'translate(0px,0)'}}></i>
+                                        style={{opacity: this.state.textHover[index].status? 1:0, 
+                                        transform: this.state.textHover[index].status?'translate(30px,0)':'translate(0px,0)'}}></i>
                                 </Link>
                             </div>
                             ))}
