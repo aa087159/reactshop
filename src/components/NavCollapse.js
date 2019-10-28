@@ -17,9 +17,10 @@ export class NavCollapse extends Component {
                             <Spring
                                 from={{ opacity: 0, marginTop: -1000 }}
                                 to={{ opacity: 1, marginTop: 0  }}
+                                
                             >
                                 {props=>(
-                                        <NavCollapseContainer style={props}>
+                                        <NavCollapseContainer style={props} >
                                             <ul >
                                                 <Link to="/" onClick={()=>closeNavModal()}>
                                                     <li>HOME</li>
@@ -58,15 +59,16 @@ const NavCollapseContainer = styled.div`
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
     right: 0;
+    left: 0;
     background-color: rgba(0,0,0,0.9);
     color: #fff;
     ul{
         text-align: center;
         position: absolute;
-        top: 20%;
-        left: 38%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-57%,-50%);
         list-style-type: none;
         color: #fff;
     }
