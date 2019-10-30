@@ -29,7 +29,7 @@ const loadingImage =
     "data:image/gif;base64,R0lGODlhAQABAPAAAMzMzAAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==";
 
 
-const Title = ["Embroidery","Cloth","Knitting","Wooden","Animals","About"]
+const Title = ["刺繡","布作","針織","木作","四隻腳","關於"]
 
 const Text = ["Lorem ipsum dolor sit amet.",
               "Lorem ipsum dolor sit amet.",
@@ -38,8 +38,9 @@ const Text = ["Lorem ipsum dolor sit amet.",
               "Lorem ipsum dolor sit amet.",
               "Lorem ipsum dolor sit amet.",]
 
+const TextSwtich = Array(Text.length).fill({status:false});
 
-const IconNames = ["fa-cat", "fa-dog", "fa-paw","fa-crow","fa-bone","fa-mitten"]
+const IconNames = ["fa-cat", "fa-dog", "fa-bone","fa-crow","fa-paw","fa-mitten"]
 
 const settings = {
     controls: false,
@@ -93,13 +94,24 @@ for (let i = 0; i < 6; i++){
 
 class Slider extends Component {
     state={
-        textHover: false
+        textHover: TextSwtich
     }
     
-    textHoverHandler = () => {
-        this.setState(prevState => ({
-            textHover: !prevState.textHover
-          }));
+    textMouseEnterHandler = (index) => {
+        let _textHover = JSON.parse(JSON.stringify(this.state.textHover));
+        _textHover[index].status = true;
+        this.setState({
+             textHover:_textHover
+        })
+     }
+     textMouseLeaveHandler = (index) =>{
+         setTimeout(()=>{
+             let _textHover = JSON.parse(JSON.stringify(this.state.textHover));
+             _textHover[index].status = false;
+             this.setState({
+                  textHover:_textHover
+             })
+         })
     }
 
     onGoTo = dir => this.ts.slider.goTo(dir)
@@ -111,12 +123,11 @@ class Slider extends Component {
                         <TinySlider 
                             settings={settings}
                             ref={ts => this.ts = ts}
-                            class="tinySlider"
                             >
                             {imgs.map((el, index) => (
                             <div className="slide"
-                                    onMouseEnter={()=> this.textHoverHandler()}
-                                    onMouseLeave={()=> this.textHoverHandler()}
+                                onMouseEnter={()=> this.textMouseEnterHandler(index)}
+                                onMouseLeave={()=> this.textMouseLeaveHandler(index)}
                                     key={index}>
                                 <img className={`tns-lazy-img`}
                                         src={loadingImage}
@@ -127,13 +138,10 @@ class Slider extends Component {
                                 />
                                 <Link activeClass="activer" className="pointer" to="toAboutUs" spy={true} smooth="easeInQuad" offset={-55} duration={1000}>
                                     <h2 className="SliderTitle" 
-                                        style={{transform: this.state.textHover?'scale(1.2)':'scale(1)'}}>{Title[index]}</h2>
-                                    <p className="SliderText"
-                                        style={{opacity: this.state.textHover? 1:0,
-                                                transform: this.state.textHover?'translate(70px,0)':'translate(0px,0)'}}>{Text[index]}</p>
-                                    <i className={`fas ${IconNames[index]} fa-2x hoverIcons `}
-                                        style={{opacity: this.state.textHover? 1:0, 
-                                        transform: this.state.textHover?'translate(30px,0)':'translate(0px,0)'}}></i>
+                                        style={{transform: this.state.textHover[index].status?'scale(1.2)':'scale(1)'}}>{Title[index]}</h2>
+                                    <i className={`fas ${IconNames[index]} fa-3x hoverIcons `}
+                                       style={{opacity: this.state.textHover[index].status? 1:0, 
+                                               transform: this.state.textHover[index].status?'translate(30px,0)':'translate(0px,0)'}}></i>
                                 </Link>
                             </div>
                             ))}
@@ -160,6 +168,15 @@ const SliderWrapper = styled.div`
         color: #fff;
         position: absolute;
         top: 45%;
+        &:focus {
+            box-shadow: none!important;
+        }
+    }
+    #btnLeft{
+        left: 2%;
+    }
+    #btnRight{
+        right: 2%;
     }
     .icon{
         position: absolute;
@@ -172,54 +189,64 @@ const SliderWrapper = styled.div`
     img{
         opacity: 0.2
     }
-    .btn:focus {
-        box-shadow: none!important;
-    }
-    #btnLeft{
-        left: 2%;
-    }
-    #btnRight{
-        right: 2%;
-    }
     #BackImage{
         background-repeat: no-repeat;
         background-size: cover;
         background-image: url(./img/Embroidery/1.jpg);
         background-position: right;  
     }
-    .tinySlider{
-        display: flex
-    }
-    .SliderTitle, .SliderText{
-        position: absolute;
-        color: #fff;
-        top: 45%;
-        transform: translate(-50%, -50%);
-    }
-    .SliderTitle{
-        transition: 0.6s;
-        left: 37%;
-    }
-    .SliderText{
-        top:50%;
-        transition: 0.4s;
-        left: 20%;
-    }
-    .Intro{
-        position: absolute;
-    }
     .slide{
         position: relative;
     }
-    .hoverIcons{
-        transition: 0.6s;
+    .SliderTitle{
         position: absolute;
-        left: 20%;
-        top: 45%;
+        transition: 0.6s;
         color: #fff;
+        top: 45%;
+        left: 0;
+        width: 100%;
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+    .hoverIcons{
+        position: absolute;
+        transition: 0.6s;
+        color: #fff;
+        top: 44%;
+        left: -24%;
+        width: 100%;
     }
     .pointer{
         cursor: pointer;
+        text-align: center;
+    }
+    @media screen and (max-width: 1400px){
+        .hoverIcons{
+            top: 35%;
+            left: -7%;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 1045px){
+        .hoverIcons{
+            left: -9%;
+        }
+    }
+    @media screen and (max-width: 900px){
+        .hoverIcons{
+            left: -7%;
+        }
+    }
+    @media screen and (max-width: 640px){
+        .hoverIcons{
+            left: -6%;
+        }
+    }
+    @media screen and (max-width: 450px){
+        .hoverIcons{
+            top: 35%;
+            left: -8%;
+            width: 100%;
+        }
     }
 `
 export default Slider

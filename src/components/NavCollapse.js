@@ -23,25 +23,25 @@ export class NavCollapse extends Component {
                                         <NavCollapseContainer style={props} >
                                             <ul >
                                                 <Link to="/" onClick={()=>closeNavModal()}>
-                                                    <li>HOME</li>
+                                                    <li>首頁</li>
                                                 </Link>
                                                 <Link to="/EmbroideryList" onClick={()=>closeNavModal()} >
-                                                    <li>EMBROIDERY</li>
+                                                    <li>刺繡</li>
                                                 </Link>
                                                 <Link to="/Cloth" onClick={()=>closeNavModal()}>
-                                                    <li>CLOTH</li>
+                                                    <li>布作</li>
                                                 </Link>
                                                 <Link to="/knitting" onClick={()=>closeNavModal()}>
-                                                    <li>KNITTING</li>
+                                                    <li>針織</li>
                                                 </Link>
                                                 <Link to="/wooden" onClick={()=>closeNavModal()}>
-                                                    <li>WOODEN</li>
+                                                    <li>木作</li>
                                                 </Link>
                                                 <Link to="/animals" onClick={()=>closeNavModal()}>
-                                                    <li>ANIMALS</li>
+                                                    <li>四隻腳</li>
                                                 </Link>
                                                 <Link to="/about" onClick={()=>closeNavModal()}>
-                                                    <li>ABOUT</li>
+                                                    <li>關於我們</li>
                                                 </Link>
                                             </ul>
                                         </NavCollapseContainer>
@@ -76,8 +76,8 @@ const NavCollapseContainer = styled.div`
         text-decoration: none;
         color: #fff;
         font-size: 40px;
-        font-weight: 700
         transition: 0.3s;
+        font-family: 'Noto Sans TC', sans-serif;
     }
     a:hover{
         color: #E98074;
