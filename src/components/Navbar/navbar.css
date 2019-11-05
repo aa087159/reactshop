@@ -1,0 +1,51 @@
+nav{
+    height: 120px;
+    position: relative;
+}
+.NavLinks{
+    position: absolute;
+    z-index: 3;
+    top: 25%;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.navTexts{
+    font-family: 'Noto Sans TC', sans-serif;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+nav a:hover{
+    text-decoration: none;
+}
+.navCard{
+    color: #fff;
+    background: transparent;
+    border-left: 2px dotted white;
+}
+
+.navCard:nth-child(1){
+    border-left: none !important;
+}
+.navCard:hover{
+    color: #fff;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.25);
+    transition: 0.6s;
+}
+.navIcons{
+    text-align: center;
+    width: 100%;
+}
+
+.moreIcon{
+    position: absolute;
+    z-index: 3;
+    top: 30%;
+    right: 3%;
+    color: #fff;
+    cursor: pointer;
+}
+.white{
+    color: #fff
+}

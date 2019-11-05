@@ -1,0 +1,133 @@
+.main-wrapper{
+    background-image: url("/img/jumbotron/wall.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.JumboTron img{
+    z-index: 3;
+    position: absolute;
+    top: 35%;
+    left: 43%;
+    width: 195px;
+    }
+.bluredBackground {
+    position: absolute;
+    top: 30%;
+    left: 41%;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    z-index:1;
+    position:absolute;
+    background: rgba(0,0,0,0.1);
+    backdrop-filter: blur(3px);
+    box-shadow: -3px 3px 5px 2px rgba(0,0,0,0.4);
+}
+.bluredBackground h2{
+    position: absolute;
+    left: 24%;
+    top: 70%;
+    color: #fff;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.arched span{
+    position: absolute;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 90px;
+    z-index: 12;
+}
+.arched > span:nth-child(1) {
+    transform: rotate(-60deg);
+    left: 36%;
+    top: 24%;
+}
+.arched > span:nth-child(2) {
+    transform: rotate(-35deg);
+    left: 40%;
+    top: 16%;
+    
+}
+.arched > span:nth-child(3) {
+    transform: rotate(-10deg);
+    left: 45%;
+    top: 13%;
+}
+.arched > span:nth-child(4) {
+    transform: rotate(20deg);
+    left: 50%;
+    top: 13%;
+}
+.arched > span:nth-child(5) {
+    transform: rotate(39deg);
+    left: 55%;
+    top: 18%;
+}
+.arched > span:nth-child(6) {
+    transform: rotate(58deg);
+    left: 59%;
+    top: 25%;
+}
+
+
+.carousel-wrapper{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+.slick-slide img {
+    min-width:100%;
+    max-height: 550px;
+    object-fit: cover;
+    overflow: hidden;
+    }
+.cssDots{
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+    padding: 0;
+    background:transparent;
+    width: 300px;
+    text-align: center;
+}
+.cssDots li {
+    list-style: none;
+    display: inline-block;
+    margin: 15px 20px;
+    padding: 0;
+    }
+.cssDots li button {
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+.cssDots li button:hover,
+.cssDots li button:focus {
+    background: rgba(255, 255, 255, 0.8);
+    outline: 0;
+    transition: 0.6s;
+}
+
+.contact{
+    position: absolute;
+}
+
+.time h1{
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #5F3917;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
