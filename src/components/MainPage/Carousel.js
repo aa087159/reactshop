@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import styled from 'styled-components'
 
 const imgs = [
     "shop",
@@ -20,9 +19,9 @@ export class Carousel extends Component {
           dotsClass: "cssDots",
         };
         return (
-            <Slider {...settings}>
+            <Slider {...settings} >
                 {imgs.map((el, index) => (
-                    <img key={index} src={`./img/jumbotron/${imgs[index]}.jpg`} alt=""/>
+                        <img key={index} src={`./img/jumbotron/${imgs[index]}.jpg`} alt=""/>
                 ))}
             </Slider>
         );

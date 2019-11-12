@@ -1,0 +1,77 @@
+@import '../../resets';
+
+.navbar-default{
+    position: absolute;
+    min-width: 100%;
+    height: 80px;
+    z-index: 5;
+    background-color: $secondary-color;
+
+    .navbar-brand{
+        font-family: ch;
+        font-size: 50px;
+        list-style-type: none;
+        position: absolute;
+        color: #fff;
+    }
+
+    .NavLinks{
+        position: absolute;
+        top: 7%;
+        width: 50vw;
+        left: 50%;
+        transform: translateX(-30%);
+
+        .navCard{
+            color: #fff;
+            background: transparent;
+            height: 70px;
+            border-left: 2px dotted white;
+            cursor: pointer;
+            &:nth-child(1){
+                border-left: none !important;
+            }
+
+            &:hover{
+                color: $pinkier;
+                transition: 0.6s;
+            }
+
+            .navIcons{
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        .navTexts{
+            font-family: ch;
+            text-decoration: none;
+            font-size: 22px;
+        }
+
+        & a:hover{
+            text-decoration: none;
+        }
+    }
+
+    .moreIcon{
+        position: absolute;
+        top: 25%;
+        right: 3%;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .white{
+        color: #fff;
+    }
+
+}
+
+
+
+
+
+
+
+

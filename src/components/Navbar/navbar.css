@@ -1,51 +1,75 @@
-nav{
-    height: 120px;
-    position: relative;
-}
-.NavLinks{
-    position: absolute;
-    z-index: 3;
-    top: 25%;
-    width: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.navTexts{
-    font-family: 'Noto Sans TC', sans-serif;
-    text-decoration: none;
-    border: 2px solid white;
-    border-radius: 50%;
-}
-nav a:hover{
-    text-decoration: none;
-}
-.navCard{
-    color: #fff;
-    background: transparent;
-    border-left: 2px dotted white;
+@font-face {
+  font-family: ch;
+  src: url(/fonts/setofont.ttf);
 }
 
-.navCard:nth-child(1){
-    border-left: none !important;
-}
-.navCard:hover{
-    color: #fff;
-    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.25);
-    transition: 0.6s;
-}
-.navIcons{
-    text-align: center;
-    width: 100%;
+.navbar-default {
+  position: absolute;
+  min-width: 100%;
+  height: 80px;
+  z-index: 5;
+  background-color: #CEA48B;
 }
 
-.moreIcon{
-    position: absolute;
-    z-index: 3;
-    top: 30%;
-    right: 3%;
-    color: #fff;
-    cursor: pointer;
+.navbar-default .navbar-brand {
+  font-family: ch;
+  font-size: 50px;
+  list-style-type: none;
+  position: absolute;
+  color: #fff;
 }
-.white{
-    color: #fff
+
+.navbar-default .NavLinks {
+  position: absolute;
+  top: 7%;
+  width: 50vw;
+  left: 50%;
+  -webkit-transform: translateX(-30%);
+          transform: translateX(-30%);
 }
+
+.navbar-default .NavLinks .navCard {
+  color: #fff;
+  background: transparent;
+  height: 70px;
+  border-left: 2px dotted white;
+  cursor: pointer;
+}
+
+.navbar-default .NavLinks .navCard:nth-child(1) {
+  border-left: none !important;
+}
+
+.navbar-default .NavLinks .navCard:hover {
+  color: #F2C3BF;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.navbar-default .NavLinks .navCard .navIcons {
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-default .NavLinks .navTexts {
+  font-family: ch;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.navbar-default .NavLinks a:hover {
+  text-decoration: none;
+}
+
+.navbar-default .moreIcon {
+  position: absolute;
+  top: 25%;
+  right: 3%;
+  color: #fff;
+  cursor: pointer;
+}
+
+.navbar-default .white {
+  color: #fff;
+}
+/*# sourceMappingURL=navbar.css.map */

@@ -1,0 +1,34 @@
+@font-face {
+    font-family: ch;
+    src: url(/fonts/setofont.ttf);
+  }
+
+
+@mixin set-self($selfColumns, $selfRows, $justify:start, $align:start){
+    grid-column: $selfColumns;
+    grid-row: $selfRows;
+    justify-self: $justify;
+    align-self: $align;
+}
+
+@mixin button{
+    color: $darker;
+    padding: 5px;
+    border-radius: 25px;
+    border: 1px solid $darker;
+    background-color: transparent;
+    border-radius: 25px;
+    font-size: 18px;
+}
+
+
+$primary-color: #E8DDDB;
+$second-page: #F5F2ED;
+$secondary-color: #CEA48B;
+$darker: #7D3E2D;
+$pinkier: #F2C3BF;
+
+
+
+
+

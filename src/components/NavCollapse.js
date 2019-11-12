@@ -57,6 +57,7 @@ export class NavCollapse extends Component {
 
 const NavCollapseContainer = styled.div`
     position: absolute;
+    z-index: 4;
     top: 0;
     bottom: 0;
     right: 0;
@@ -64,13 +65,14 @@ const NavCollapseContainer = styled.div`
     background-color: rgba(0,0,0,0.9);
     color: #fff;
     ul{
-        text-align: center;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-57%,-50%);
         list-style-type: none;
         color: #fff;
+        padding: 0;
+        left: 50%;
+        top: 20%;
+        transform: translateX(-50%);
+        text-align: center;
     }
     a{
         text-decoration: none;
@@ -80,7 +82,7 @@ const NavCollapseContainer = styled.div`
         font-family: 'Noto Sans TC', sans-serif;
     }
     a:hover{
-        color: #E98074;
+        color: #5F3917;
     }
 
 `

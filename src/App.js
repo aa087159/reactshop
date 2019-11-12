@@ -11,7 +11,6 @@ import Cloth from './components/Cloth'
 import Knitting from './components/Knitting'
 import Wooden from './components/Wooden'
 import Animals from './components/Animals'
-import About from './components/About'
 import Cart from './components/Cart'
 import Default from './components/Default'
 import NavCollapse from './components/NavCollapse'
@@ -29,7 +28,6 @@ function App() {
           <Route path="/Knitting" component={Knitting} />
           <Route path="/Wooden" component={Wooden} />
           <Route path="/Animals" component={Animals} />
-          <Route path="/About" component={About} />
           <Route path="/cart" component={Cart} />
           <Route component={Default} />
         </Switch>
