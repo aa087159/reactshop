@@ -287,14 +287,116 @@
     }
 }
 
+
+
 #section-e{
     .wrapper{
         max-width: 90%;
+        height: 70vh;
+        margin: auto;
+        margin: auto;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 5px;
+        font-family: ch;
+        ul{
+            list-style: none;
+        }
+        .leftContact{
+            grid-row: 1/2;
+            grid-column: 1/2;
+            position: relative;
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 100%; 
+                height: 100%;  
+                opacity: 0.2; 
+                background: url('/img/jumbotron/homeMap.png');
+            }
+            >*{
+                padding: 3rem;
+            }
+            h1{
+                position: absolute;
+                top: 0;
+            }
+            ul{
+                position: absolute;
+                padding: 4rem;
+                top: 15%;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 80%;
+            }
+            li{
+                display: flex;
+                flex-direction: column;
+                span{
+                    margin-left: 40px;
+                    margin-top: -20px;
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .rightContact{
+            grid-row: 1/2;
+            grid-column: 2/3;
+            background-color: $primary-color;
+            >*{
+                padding: 6rem 4rem;
+            }
+            .submitButton{
+                color: $darker;
+                padding: 5px 20px;
+                border-radius: 25px;
+                border: 1px solid $darker;
+                background-color: transparent;
+                border-radius: 25px;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+
+#section-f{
+    .wrapper{
+        max-width: 90%;
+        height: 40vh;
+        margin: auto;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    .map{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        &>div{
+            width: 90% !important;
+            height: 50vh !important;
+            &>div{
+                width: 90%!important;
+                height: 40vh !important;
+            }
+        }
+    }
+}
+
+#footer{
+    .wrapper{
+        max-width: 100%;
         height: 50vh;
         margin: auto;
         padding: 30px;
         overflow: hidden;
-        background-color: $primary-color;
+        background-color: $darker;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr;
@@ -306,17 +408,18 @@
         grid-column: 2/3;
         align-self: start;
         justify-self: center;
-        width: 400px;
+        width: 300px;
         height: auto;
+        margin-top: 20px;
     }
     img:nth-child(2){
         grid-row: 1/2;
         grid-column: 2/3;
         align-self: center;
         justify-self: center;
-        width: 195px;
+        width: 150px;
         height: auto;
-        margin-top: 50px;
+       
     }
     h1{
         color: #fff;
@@ -324,49 +427,21 @@
         grid-column: 2/3;
         align-self: end;
         justify-self: center;
+        margin-bottom: 50px;
     }
     .upArrow{
-        color: $darker;
+        color: #000;
         cursor: pointer;
         position: fixed;
-        top: 50%;
-        right: 9%;
+        bottom: 0;
+        right: 1%;
         z-index: 2;
+        
         &:hover p{
             visibility: visible;
         }
         p{
             visibility: hidden;
         }
-    }
-}
-
-#section-f{
-    .wrapper{
-        max-width: 90%;
-        height: 70vh;
-        margin: auto;
-        overflow: hidden;
-        background-color: $second-page;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        grid-gap: 5px;
-        font-family: ch;
-        .map{
-            grid-column: 1/2;
-            grid-row: 1/2;
-            
-            &>div{
-                width: 80vw !important;
-                height: 70vh !important;
-                &>div{
-                    max-width: 90%!important;
-                    height: 70vh !important;
-                }
-            }
-            
-        }
-
     }
 }

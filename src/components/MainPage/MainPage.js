@@ -13,7 +13,7 @@ class MainPage extends Component {
             <ShopConsumer>
                 {value=>{
                     const products = ["Embroidery","Knitting","Cloth","Wooden"]
-                    const { toggleHandler, TextOpen } = value
+                    const { toggleHandler, TextOpen, FormSubmit, formOnChange } = value
                     return(
                         <div className="home">
 
@@ -54,7 +54,7 @@ class MainPage extends Component {
                                         小窩裡將會有先生的木手作、我的布手作、<br />
                                         過陣子還會加入手作達人的創作，<br />
                                         手作之外，我也從日本帶回一些材料包及素材，<br />
-                                        還有一些生活雑貨及擺飾{TextOpen?",":"..."}<br />
+                                        還有一些生活雜貨及擺飾{TextOpen?",":"..."}<br />
                                         <button onClick={()=>toggleHandler("TextOpen")}
                                                 style={{position:TextOpen?"absolute":"static",visibility: TextOpen?"hidden":"visible" }}
                                             ><i className="fas fa-dog"></i>More
@@ -72,7 +72,7 @@ class MainPage extends Component {
                                             雖然眼花了、手不巧了，<br />
                                             心卻自有清明恬適，正適合作手作！<br />
                                             陸陸續續擺上我們的手作物，<br />
-                                            另一個角落有精緻的生活雑貨。<br />
+                                            另一個角落有精緻的生活雜貨。<br />
                                             很感恩身邊總有許多貴人的支持，<br />
                                             讓我總是有「繼續努力」的動力，<br />
                                             想起那句話，<br />
@@ -86,13 +86,11 @@ class MainPage extends Component {
 
                             <div id="section-c">
                                 <div className="wrapper">
-                                    
                                     <h1 className="productTitle">Our Products</h1>
                                     {products.map((product, index)=>{
                                         return(
                                             <ProductIntro key={index} index={index} product={product} />
                                     )})}
-                        
                                 </div>
                             </div>
                             
@@ -104,11 +102,49 @@ class MainPage extends Component {
 
                             <div id="section-e">
                                 <div className="wrapper">
+                                    <div className="leftContact">
+                                        <h1>Contact Us</h1>
+                                        <ul>
+                                            <li><i className="far fa-clock"></i><span>週二至週五<br/>10:00AM-3:00PM</span></li>
+                                            <li><i className="fas fa-phone"></i><span>(02)2504-1461<br/>0935213721</span></li>
+                                            <li><i className="fas fa-envelope"></i><span>aa087159@gmail.com<br/>charity.li@msa.hinet.net</span></li>
+                                            <li><i className="fas fa-map-marker-alt"></i><span>台北市中山區建國北路二段186巷12號</span></li>
+                                        </ul>
+                                    </div>
+                                    <div className="rightContact">
+                                        <form id="contactForm" onSubmit={FormSubmit} method="POST">
+                                            <div className="form-group">
+                                                <label>姓名</label>
+                                                <input onChange={formOnChange} type="text" id="name" className="form-control" placeholder="輸入您的全名" required/>
+                                            </div>
+                                            <div className="form-group">
+                                                <label>電子信箱</label>
+                                                <input onChange={formOnChange} type="email" id="email" className="form-control" placeholder="name@example.com" />
+                                            </div>
+                                            <div className="form-group">
+                                                <label>留言給我們</label>
+                                                <textarea onChange={formOnChange} className="form-control" id="message" rows="3" required></textarea>
+                                            </div>
+                                            <button type="submit"  className="btn btn-default submitButton">傳送訊息</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="section-f">
+                                <div className="wrapper">
+                                    <div className="map">
+                                        <GoogleMap />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="footer">
+                                <div className="wrapper">
                                     <img className="arched" src="./img/jumbotron/curved.png" alt=""/>
                                     <img src="./img/jumbotron/Q.png" alt=""/>
                                     <h1>幸福小窩</h1>
                                     <div className="contact">
-                                        
                                     </div>
                                     <Link activeClass="activer" className="upArrow" to="section-a" spy={true} smooth="easeInQuad" offset={0} duration={1000}>
                                         <i className="far fa-arrow-alt-circle-up fa-2x"></i>
@@ -116,19 +152,9 @@ class MainPage extends Component {
                                     </Link>
                                 </div>
                             </div>
-
-                            <div id="section-f">
-                                <div className="wrapper">
-                                    <div className="map">
-                                        <GoogleMap/>
-                                    </div>
-                                </div>
-                            </div>
-                            
                         </div>
                 )}}
             </ShopConsumer>
-            
     )
   }
 }
